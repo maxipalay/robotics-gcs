@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+	<node pkg="rosserial_python" name="serial_node" type="serial_node.py" args="/dev/ttyACM0" launch-prefix="xterm -e"/>
+	<node pkg="base_station_launch" name="gstreamer" type="gst_launch.sh" launch-prefix="xterm -e"/>
+	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find base_station_launch)/rviz/laserscan_conf.rviz"/>
+</launch>
